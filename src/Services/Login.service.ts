@@ -1,3 +1,5 @@
+import { host } from "./Common.service";
+
 /**
  * Login user email and password
  * @param email 
@@ -5,8 +7,8 @@
  * @returns Promise<token>
  */
 export function login(email: string, password: string) {
-	const url = "http://localhost:8080/login",
-		data = { email, password };
+	const url = host + "/login";
+	const data = { email, password };
 
 	return fetch(url, {
 		method: "POST",

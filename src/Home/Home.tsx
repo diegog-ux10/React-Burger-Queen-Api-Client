@@ -1,10 +1,11 @@
+import { IUser } from "../interfaces";
 
-function Home() {
+function Home({user}: { user: IUser}) {
 
 	return (<>
 		<section>
-			Home!
+			Welcome {user.email}!
 		</section>
-	</>)
+	</>);
 }
 export default Home;
