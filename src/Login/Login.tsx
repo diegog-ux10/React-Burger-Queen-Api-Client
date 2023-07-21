@@ -2,7 +2,7 @@ import { useState } from "react";
 import { EventOnChange, EventPreventDefault, ILoginResponse, IUser } from "../interfaces";
 import { login } from "../Services/Login.service";
 
-function Login({ setUser }: { setUser: (a: IUser) => void }) {
+function Login({ onCreateToken }: { onCreateToken: (a: IUser) => void }) {
 	const initialFormState = {
 		email: "",
 		password: ""
@@ -26,7 +26,7 @@ function Login({ setUser }: { setUser: (a: IUser) => void }) {
 						...res.user,
 						token: res.accessToken
 					};
-					setUser(user);
+					onCreateToken(user);
 				}
 				setMessage(newResult);
 			}).catch(err => console.log(err))// revisar sin internet y actualizar el message
