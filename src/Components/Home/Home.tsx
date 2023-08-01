@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces";
+import { IUser } from "../../Util/interfaces";
 
 function Home({user}: { user: IUser}) {
 

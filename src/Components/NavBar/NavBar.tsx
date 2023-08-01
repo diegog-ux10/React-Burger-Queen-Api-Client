@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces";
+import { IUser } from "../../Models/interfaces.d";
 
 export const NavBar = ({onLogout, user}: {onLogout: () => void, user: IUser}) => {
 	const userSignedIn = user.id > 0;

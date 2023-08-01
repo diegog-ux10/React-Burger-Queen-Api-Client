@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { NavBar } from "./NavBar/NavBar";
-import { IUser } from "./interfaces";
+import { NavBar } from "./Components/NavBar/NavBar";
+import { IUser } from "./Util/interfaces.d";
 
 export const Layout = ({onLogout, user}: {onLogout: () => void, user: IUser}) => {
 	return (<>

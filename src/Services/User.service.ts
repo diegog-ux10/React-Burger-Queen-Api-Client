@@ -1,17 +1,16 @@
-import { host } from "./Common.service";
+import { IUser } from "../Models/interfaces.d";
+import { host, jsonFetch } from "./Common.service";
 
 /**
  * Get one user info by id
  * @param id 
  * @returns Promise<token>
  */
-export function getUser(id: string) {
+export function getUser(id: number):Promise<IUser> {
 	const url = host + "/users/" + id;
 
-	return fetch(url, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		}
-	}).then(response => response.json())
+	return jsonFetch({
+		url,
+		method: "GET"
+	});
 }
