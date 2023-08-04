@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { EventOnChange, EventPreventDefault, ICurrentUser, ILoginResponse } from "../../Models/interfaces.d";
 import { login } from "../../Services/Login.service";
+import burgerImg from "../../assets/burger.jpg";
+import "./Login.css";
 
 function Login({ onCreateToken }: { onCreateToken: (a: ICurrentUser) => void }) {
 	const initialFormState = {
@@ -28,8 +30,8 @@ function Login({ onCreateToken }: { onCreateToken: (a: ICurrentUser) => void }) 
 	};
 
 	return (<>
-		<section>
-			Login
+		<section id="login-site">
+			<img src={burgerImg} alt="burger" />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="user-email">E-mail:</label>
 				<input required type="email" placeholder="E-mail" id="user-email"
