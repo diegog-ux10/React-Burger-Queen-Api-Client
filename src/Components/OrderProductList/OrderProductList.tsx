@@ -4,7 +4,7 @@ import "./OrderProductList.css"
 function OrderProductList({order, addProduct, removeProduct}: {order: IOrder, addProduct: (p: IProduct) => void, removeProduct: (p: IProduct) => void}) {
 
 	return (<>
-		{ order.products.length === 0 && (<span>Add some products to this order</span>)}
+		{ order.products.length === 0 && (<span>You have not added products to this order</span>)}
 		<ul id="order-list-container">
 			{order.products.map((prod: IOrderProduct) => (
 				<li key={prod.product.id}>

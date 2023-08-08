@@ -59,7 +59,7 @@ function Waiter() {
 					removeProduct={handleRemoveProduct}
 				/>
 				<form action="">
-					<label htmlFor="costumer-name">Costumer:</label>
+					<label htmlFor="costumer-name">Costumer name:</label>
 					<input type="text" required name="costumer-name" id="costumer-name" value={costumer} onChange={handleChangeCostumer} />
 					<button disabled={costumer === "" || order.products.length === 0} type="submit">Create new order</button>
 				</form>
