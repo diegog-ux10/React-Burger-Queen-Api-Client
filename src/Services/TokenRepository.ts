@@ -1,15 +1,15 @@
-import { IUser } from "./interfaces";
+import { ICurrentUser } from "../Models/interfaces.d";
 
 const tokenKey = 'token';
 const tokenUserId = 'userId';
 
 /**
  * set user token and id in local storage
- * @param user 
+ * @param currentUser 
  */
-export const createSession = (user: IUser) => {
-	localStorage.setItem(tokenUserId, user.id.toString());
-	localStorage.setItem(tokenKey, user.token);
+export const createSession = (currentUser: ICurrentUser) => {
+	localStorage.setItem(tokenUserId, currentUser.user.id.toString());
+	localStorage.setItem(tokenKey, currentUser.token);
 };
 
 /**

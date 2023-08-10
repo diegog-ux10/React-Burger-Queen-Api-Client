@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { getSession } from "./TokenRepository";
-import { ROUTES } from "./Constants";
+import { getSession } from "../Services/TokenRepository";
+import { ROUTES } from "./Routes";
 
 export const ProtectedRoute = ({isLoginRoute}: {isLoginRoute: boolean}) => {
 	const { token } = getSession();

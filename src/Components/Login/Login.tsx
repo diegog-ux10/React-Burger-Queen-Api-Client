@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { EventOnChange, EventPreventDefault, ILoginResponse, IUser } from "../interfaces";
-import { login } from "../Services/Login.service";
+import { EventOnChange, EventPreventDefault, ICurrentUser, ILoginResponse } from "../../Models/interfaces.d";
+import { login } from "../../Services/Login.service";
+import burgerImg from "../../assets/burger.jpg";
+import "./Login.css";
 
-function Login({ onCreateToken }: { onCreateToken: (a: IUser) => void }) {
+function Login({ onCreateToken }: { onCreateToken: (a: ICurrentUser) => void }) {
 	const initialFormState = {
 		email: "",
 		password: ""
@@ -17,25 +19,19 @@ function Login({ onCreateToken }: { onCreateToken: (a: IUser) => void }) {
 		setMessage("");
 		setLoginLoading(true);
 		login(formData.email, formData.password)
-			.then((res: string | ILoginResponse) => {
-				const error = typeof res === 'string';
-				const newResult = error ? res : 'Logged in successfully';
-
-				if (!error) {
-					const user = {
-						...res.user,
-						token: res.accessToken
-					};
-					onCreateToken(user);
-				}
-				setMessage(newResult);
-			}).catch(err => console.log(err))// revisar sin internet y actualizar el message
+			.then((res: ILoginResponse) => {
+				const currentUser = {
+					user: res.user,
+					token: res.accessToken
+				};
+				onCreateToken(currentUser);
+			}).catch(setMessage)
 			.finally(() => setLoginLoading(false));
 	};
 
 	return (<>
-		<section>
-			Login
+		<section id="login-site">
+			<img src={burgerImg} alt="burger" />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="user-email">E-mail:</label>
 				<input required type="email" placeholder="E-mail" id="user-email"

@@ -1,0 +1,8 @@
+#login-site {
+	width: 50%;
+	margin: auto;
+}
+
+#login-site > img {
+	width: 100%;
+}

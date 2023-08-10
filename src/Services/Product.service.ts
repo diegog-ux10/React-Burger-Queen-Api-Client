@@ -1,4 +1,4 @@
-import { IUser } from "../Models/interfaces.d";
+import { IProduct } from "../Models/interfaces.d";
 import { host, jsonFetch } from "./Common.service";
 
 /**
@@ -6,8 +6,8 @@ import { host, jsonFetch } from "./Common.service";
  * @param id 
  * @returns Promise<token>
  */
-export function getUser(id: number):Promise<IUser> {
-	const url = host + "/users/" + id;
+export function getProducts():Promise<IProduct[]> {
+	const url = host + "/products";
 
 	return jsonFetch({
 		url,
