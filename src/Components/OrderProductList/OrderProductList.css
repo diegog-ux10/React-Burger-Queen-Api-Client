@@ -1,5 +1,7 @@
 .order-list-container {
 	padding-inline-start: 0;
+    overflow-y: auto			;
+    max-height: calc(100vh - 421px);
 }
 
 .order-list-container > li {

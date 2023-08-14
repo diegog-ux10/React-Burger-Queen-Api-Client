@@ -3,10 +3,10 @@ import "./ProductList.css";
 
 interface ProductListProps {
 	products: IProduct[];
-	addProduct: (p: IProduct) => void;
+	onAddProduct: (p: IProduct) => void;
 }
 
-const ProductList : React.FC<ProductListProps> = ({ products, addProduct }) => {
+const ProductList : React.FC<ProductListProps> = ({ products, onAddProduct: addProduct }) => {
 
 	return (
 	<ul className="product-list-container">
