@@ -1,10 +1,15 @@
-import { IProduct } from "../../Models/interfaces.d";
+import { IProduct } from "../../Models/Product.d";
 import "./ProductList.css";
 
-function ProductList({products, addProduct}: {products: IProduct[], addProduct: (p: IProduct) => void}) {
+interface ProductListProps {
+	products: IProduct[];
+	addProduct: (p: IProduct) => void;
+}
+
+const ProductList : React.FC<ProductListProps> = ({ products, addProduct }) => {
 
 	return (
-	<ul id="product-list-container">
+	<ul className="product-list-container">
 		{products.map((product: IProduct) => (
 			<li key={product.id} onClick={() => addProduct(product)}>
 				{product.name}

@@ -1,11 +1,17 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { getSession } from "../Services/TokenRepository";
-import { ROUTES } from "./Routes";
+import { PATHNAMES } from "./Routes";
+import { getUser } from "../Services/UserRepository";
 
-export const ProtectedRoute = ({isLoginRoute}: {isLoginRoute: boolean}) => {
-	const { token } = getSession();
-	const onFailRedirects = isLoginRoute ? ROUTES.home : ROUTES.login;
-	const allowContinue = isLoginRoute ? !token : token;
+export const ProtectedRoute = () => {
+	const { token, userId } = getSession();
+	const navigate = useNavigate();
 
-	return allowContinue ? <Outlet /> : <Navigate to={onFailRedirects} replace />;
+	useEffect(() => {
+		getUser(userId)
+			.catch(() => navigate(PATHNAMES.LOGIN));
+	}, []);
+
+	return token ? <Outlet /> : <Navigate to={PATHNAMES.LOGIN} replace />;
 };

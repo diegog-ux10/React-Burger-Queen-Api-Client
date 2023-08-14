@@ -1,9 +1,31 @@
 #  Burger Queen (API Client) with TypeScript proposal
 
+## Stack tecnológico
+
+- `ViteJs` para construir el proyecto.
+- `React Testing Library` para las pruebas de componentes.
+- `React Router DOM` para las rutas de la SPA.
+
+## Estructura de archivos
+
+- `src/assets`: directorio para imágenes.
+- `src/Components`: directorio para componentes React.
+- `src/Models`: directorio para interfaces TypeScript.
+- `src/Routes`: directorio para componentes relacionados con rutas.
+- `src/Services`: directorio para las funciones que interactuán con la API Rest y `localstorage`.
+
 ## Rutas
 
-* Usar `react-router-dom` versión *6.x* como librería de rutas.
-* Crear un objeto [Routes](src\Routes\Routes.ts) que tenga el *pathname* de las rutas para .
+Se definirán las siguientes rutas:
+
+- /login: formulario de login (historia de usuaria 1)
+- /home: menú de módulos
+- /orders/create: creación de pedidos (historia de usuaria 2)
+- /orders/pending: listado de pedidos para preparar para jefa de cocina (historia de usuaria 3)
+- /orders/delivering: listado de pedidos listos para servir para mesero (historia de usuario 4)
+- /orders/delivered: listado de pedidos para entregados
+- /admin/products: CRUD de productos (historia de usuario 5)
+- /admin/users: CRUD de usuarias (historia de usuario 6)
 
 ### Protección de rutas
 

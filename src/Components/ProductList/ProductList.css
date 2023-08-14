@@ -1,4 +1,4 @@
-#product-list-container {
+.product-list-container {
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
@@ -9,7 +9,7 @@
     max-height: calc(100vh - 321px);
 }
 
-#product-list-container > li {
+.product-list-container > li {
 	width: 100px;
 	border: solid 1px #D9B100;
     border-radius: 15px;
@@ -21,6 +21,6 @@
 	background-color: #eee;
 }
 
-#product-list-container > li > img {
+.product-list-container > li > img {
 	width: 100%;
 }
