@@ -1,6 +1,11 @@
-import { IUser } from "../../Models/interfaces.d";
+import { IUser } from "../../Models/User.d";
 
-export const NavBar = ({onLogout, user}: {onLogout: () => void, user: IUser}) => {
+interface NavBarProps {
+	onLogout: () => void;
+	user: IUser;
+}
+
+const NavBar : React.FC<NavBarProps> = ({ onLogout, user }) => {
 	const userSignedIn = user.id > 0;
 
 	return (userSignedIn &&
@@ -13,3 +18,5 @@ export const NavBar = ({onLogout, user}: {onLogout: () => void, user: IUser}) =>
 	</nav>
 	)
 };
+
+export default NavBar;

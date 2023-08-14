@@ -1,14 +1,14 @@
-#order-list-container {
+.order-list-container {
 	padding-inline-start: 0;
 }
 
-#order-list-container > li {
+.order-list-container > li {
 	display: flex;
 	list-style-type: none;
 	align-items: center;
     gap: 10px;
 }
 
-#order-list-container span.product-name {
+.order-list-container span.product-name {
 	flex: 1;
 }

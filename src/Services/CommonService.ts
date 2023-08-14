@@ -1,5 +1,5 @@
 import { getSession } from "./TokenRepository";
-import { IJsonFetchParams } from "../Models/interfaces.d";
+import { IJsonFetchParams } from "../Models/Response.d";
 
 export const host = 'http://localhost:8080';
 

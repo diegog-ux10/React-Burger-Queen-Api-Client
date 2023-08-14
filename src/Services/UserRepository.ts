@@ -1,5 +1,5 @@
-import { IUser } from "../Models/interfaces.d";
-import { host, jsonFetch } from "./Common.service";
+import { IUser } from "../Models/User.d";
+import { host, jsonFetch } from "./CommonService";
 
 /**
  * Get one user info by id
