@@ -33,25 +33,25 @@ export const ROUTES = [
 						path: PATHNAMES.HOME,
 						element: <Home />,
 					},
-				]
-			},
-			{
-				path: PATHNAMES.ORDERS,
-				children: [
 					{
-						path: PATHNAMES.CREATE,
-						element: <Waiter />,
+						path: PATHNAMES.ORDERS,
+						children: [
+							{
+								path: PATHNAMES.CREATE,
+								element: <Waiter />,
+							},
+						]
 					},
+					{
+						path: PATHNAMES.PRODUCTS,
+						element: <Admin />,
+					},
+					{
+						path: PATHNAMES.USERS,
+						element: <Admin />,
+					}
 				]
 			},
-			{
-				path: PATHNAMES.PRODUCTS,
-				element: <Admin />,
-			},
-			{
-				path: PATHNAMES.USERS,
-				element: <Admin />,
-			}
 		]
 	}
 ];

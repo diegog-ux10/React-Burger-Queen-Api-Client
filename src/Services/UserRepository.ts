@@ -9,6 +9,9 @@ import { host, jsonFetch } from "./CommonService";
 export function getUser(id: number):Promise<IUser> {
 	const url = host + "/users/" + id;
 
+	if (id<1)
+		return Promise.reject();
+
 	return jsonFetch({
 		url,
 		method: "GET"
