@@ -1,6 +1,7 @@
 import { IProduct } from "../../models/product";
 import { IOrder, IOrderProduct } from "../../models/order";
-import "./OrderProductList.css";
+
+import "./order-product-list.css";
 
 interface OrderProductListProps {
   order: IOrder;

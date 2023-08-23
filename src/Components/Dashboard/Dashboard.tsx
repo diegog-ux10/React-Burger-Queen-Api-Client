@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { ROLES } from "../../models/role";
+
+import { ROLES } from "../../models/role.d";
 import { getSession } from "../../services/token-repository";
 import { PATHNAMES } from "../../routes/routes";
-import "./Dashboard.css";
+
+import "./dashboard.css";
 
 const Dashboard: React.FC = () => {
   const { user } = getSession();

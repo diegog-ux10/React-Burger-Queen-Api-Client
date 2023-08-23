@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+
 import NavBar from "../components/navbar/navbar";
 import { getSession } from "../services/token-repository";
 

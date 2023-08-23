@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { EventOnChange, EventPreventDefault } from "../../models/event";
 import { IUser } from "../../models/user";
 import { ILoginResponse } from "../../models/response";
 import { createSession, login } from "../../services/token-repository";
-import burgerImg from "../../assets/burger.jpg";
-import "./LoginForm.css";
-import { useNavigate } from "react-router-dom";
 import { PATHNAMES } from "../../routes/routes";
+
+import burgerImg from "../../assets/burger.jpg";
+import "./login-form.css";
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();

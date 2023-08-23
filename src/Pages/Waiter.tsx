@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+
 import { getProducts } from "../services/product-repository";
-import { PRODUCT_TYPE, IProduct } from "../models/product";
+import { PRODUCT_TYPE, IProduct } from "../models/product.d";
 import { EventOnChange } from "../models/event";
 import { IOrder, IOrderProduct } from "../models/order";
 import ProductList from "../components/product-list/product-list";
-import "./Waiter.css";
 import CreateOrder from "../components/create-order/create-order";
+
+import "./Waiter.css";
 
 const ADD_PRODUCT = true;
 const REMOVE_PRODUCT = false;

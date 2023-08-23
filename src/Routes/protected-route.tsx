@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
+
 import { getSession } from "../services/token-repository";
-import { PATHNAMES } from "./routes";
 import { getUser } from "../services/user-repository";
+import { PATHNAMES } from "./routes";
 
 export const ProtectedRoute = () => {
   const { token, userId } = getSession();

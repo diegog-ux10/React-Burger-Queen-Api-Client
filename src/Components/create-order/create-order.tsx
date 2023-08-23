@@ -1,8 +1,9 @@
-import { EventOnChange } from "../../models/Event";
+import { EventOnChange } from "../../models/event";
 import { IOrder, IOrderProduct } from "../../models/order";
 import { IProduct } from "../../models/product";
 import OrderProductList from "../order-product-list/order-product-list";
-import "./CreateOrder.css";
+
+import "./create-order.css";
 
 interface CreateOrderProps {
   order: IOrder;

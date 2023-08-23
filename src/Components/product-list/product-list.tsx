@@ -1,5 +1,6 @@
 import { IProduct } from "../../models/product";
-import "./ProductList.css";
+
+import "./product-list.css";
 
 interface ProductListProps {
   products: IProduct[];
