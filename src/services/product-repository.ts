@@ -6,11 +6,11 @@ import { host, jsonFetch } from "./common-service";
  * @param id
  * @returns Promise<token>
  */
-export function getProducts(): Promise<Product[]> {
+export const getProducts = (): Promise<Product[]> => {
   const url = host + "/products";
 
   return jsonFetch({
     url,
     method: "GET",
   });
-}
+};

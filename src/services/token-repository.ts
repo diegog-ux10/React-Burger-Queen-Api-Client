@@ -18,7 +18,10 @@ type Session = {
  * @param password
  * @returns Promise<token>
  */
-export function login(email: string, password: string): Promise<LoginResponse> {
+export const login = (
+  email: string,
+  password: string
+): Promise<LoginResponse> => {
   const url = host + "/login";
   const data = { email, password };
 
@@ -27,7 +30,7 @@ export function login(email: string, password: string): Promise<LoginResponse> {
     method: "POST",
     body: data,
   });
-}
+};
 
 /**
  * set user token and id in local storage

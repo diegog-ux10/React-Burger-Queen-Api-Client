@@ -6,7 +6,7 @@ import { host, jsonFetch } from "./common-service";
  * @param id
  * @returns Promise<token>
  */
-export function getUser(id: number): Promise<User> {
+export const getUser = (id: number): Promise<User> => {
   const url = host + "/users/" + id;
 
   if (id < 1) return Promise.reject();
@@ -15,4 +15,4 @@ export function getUser(id: number): Promise<User> {
     url,
     method: "GET",
   });
-}
+};
