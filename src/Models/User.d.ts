@@ -1,13 +1,13 @@
 import { ROLES } from "./order";
 
-export interface ICurrentUser {
-  token: string;
-  user: IUser;
-}
-
-export interface IUser {
+export type User = {
   id: number;
   email: string;
   role: ROLES;
   password: string;
-}
+};
+
+export type CurrentUser = {
+  token: string;
+  user: User;
+};

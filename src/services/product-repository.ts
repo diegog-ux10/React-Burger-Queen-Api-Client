@@ -1,4 +1,4 @@
-import { IProduct } from "../models/product";
+import { Product } from "../models/product";
 import { host, jsonFetch } from "./common-service";
 
 /**
@@ -6,7 +6,7 @@ import { host, jsonFetch } from "./common-service";
  * @param id
  * @returns Promise<token>
  */
-export function getProducts(): Promise<IProduct[]> {
+export function getProducts(): Promise<Product[]> {
   const url = host + "/products";
 
   return jsonFetch({

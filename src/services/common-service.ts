@@ -1,5 +1,5 @@
 import { getSession } from "./token-repository";
-import { IJsonFetchParams } from "../models/response";
+import { JsonFetchParams } from "../models/response";
 
 export const host = "http://localhost:8080";
 
@@ -7,7 +7,7 @@ export const host = "http://localhost:8080";
  * create a request with JSON body and response
  * @returns request
  */
-export const jsonFetch = ({ url, method, body }: IJsonFetchParams) => {
+export const jsonFetch = ({ url, method, body }: JsonFetchParams) => {
   const newBody = body ? JSON.stringify(body) : null;
   const { token } = getSession();
   const newAuthorization = token ? `Bearer ${token}` : "";

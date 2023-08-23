@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { getProducts } from "../services/product-repository";
-import { PRODUCT_TYPE, IProduct } from "../models/product.d";
+import { PRODUCT_TYPE, Product } from "../models/product.d";
 import { EventOnChange } from "../models/event";
-import { IOrder, IOrderProduct } from "../models/order";
+import { Order, OrderProduct } from "../models/order";
 import ProductList from "../components/product-list/product-list";
 import CreateOrder from "../components/create-order/create-order";
 
@@ -13,9 +13,9 @@ const ADD_PRODUCT = true;
 const REMOVE_PRODUCT = false;
 
 const Waiter: React.FC = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [activeTab, setActiveTab] = useState(PRODUCT_TYPE.breakfast);
-  const [order, setOrder] = useState<IOrder>({ costumer: "", products: [] });
+  const [order, setOrder] = useState<Order>({ costumer: "", products: [] });
   const tabButtonClass = (prodType: PRODUCT_TYPE) =>
     activeTab === prodType ? "" : "pseudo";
   const handleChangeCustomer = (e: EventOnChange) =>
@@ -26,12 +26,12 @@ const Waiter: React.FC = () => {
    * @param add
    * @param productToModify
    */
-  const modifyProductList = (add: boolean, productToModify: IProduct) => {
+  const modifyProductList = (add: boolean, productToModify: Product) => {
     const modifier = add ? 1 : -1;
     const alreadyInList = order.products.find(
-      (p: IOrderProduct) => p.product.id === productToModify.id,
+      (p: OrderProduct) => p.product.id === productToModify.id,
     );
-    const mappedList = order.products.map((p: IOrderProduct) => {
+    const mappedList = order.products.map((p: OrderProduct) => {
       const isThis = p.product.id === productToModify.id;
 
       return {
@@ -50,9 +50,9 @@ const Waiter: React.FC = () => {
       products: newList.filter(({ qty }) => qty > 0),
     });
   };
-  const handleAddProduct = (product: IProduct) =>
+  const handleAddProduct = (product: Product) =>
     modifyProductList(ADD_PRODUCT, product);
-  const handleRemoveProduct = (product: IProduct) =>
+  const handleRemoveProduct = (product: Product) =>
     modifyProductList(REMOVE_PRODUCT, product);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Waiter: React.FC = () => {
           </div>
           <ProductList
             products={products.filter(
-              (product: IProduct) => product.type === activeTab,
+              (product: Product) => product.type === activeTab,
             )}
             onAddProduct={handleAddProduct}
           />

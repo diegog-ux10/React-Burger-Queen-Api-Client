@@ -1,11 +1,11 @@
-import { IUser } from "./user";
+import { User } from "./user";
 
-export interface ILoginResponse {
+export type LoginResponse = {
   accessToken: string;
-  user: IUser;
+  user: User;
 }
 
-export interface IJsonFetchParams<TBody = any> {
+export type JsonFetchParams<TBody = any> = {
   url: string;
   method: string;
   body?: TBody;

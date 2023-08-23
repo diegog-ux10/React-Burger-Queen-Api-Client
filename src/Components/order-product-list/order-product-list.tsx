@@ -1,13 +1,13 @@
-import { IProduct } from "../../models/product";
-import { IOrder, IOrderProduct } from "../../models/order";
+import { Product } from "../../models/product";
+import { Order, OrderProduct } from "../../models/order";
 
 import "./order-product-list.css";
 
-interface OrderProductListProps {
-  order: IOrder;
-  addProduct: (p: IProduct) => void;
-  removeProduct: (p: IProduct) => void;
-}
+type OrderProductListProps = {
+  order: Order;
+  addProduct: (p: Product) => void;
+  removeProduct: (p: Product) => void;
+};
 
 const OrderProductList: React.FC<OrderProductListProps> = ({
   order,
@@ -20,7 +20,7 @@ const OrderProductList: React.FC<OrderProductListProps> = ({
         <span>You have not added products to this order</span>
       )}
       <ul className="order-list-container">
-        {order.products.map((prod: IOrderProduct) => (
+        {order.products.map((prod: OrderProduct) => (
           <li key={prod.product.id}>
             <button
               aria-label={"Remove one " + prod.product.name}

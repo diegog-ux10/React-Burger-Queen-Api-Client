@@ -1,9 +1,9 @@
-export interface EventOnChange {
+export type EventOnChange = {
   target: {
     value: string;
   };
-}
+};
 
-export interface EventPreventDefault {
+export type EventPreventDefault = {
   preventDefault(): void;
-}
+};

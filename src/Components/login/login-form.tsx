@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { EventOnChange, EventPreventDefault } from "../../models/event";
-import { IUser } from "../../models/user";
-import { ILoginResponse } from "../../models/response";
+import { User } from "../../models/user";
+import { LoginResponse } from "../../models/response";
 import { createSession, login } from "../../services/token-repository";
 import { PATHNAMES } from "../../routes/routes";
 
@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
   const handleChangePassword = (e: EventOnChange) =>
     setFormData({ ...formData, password: e.target.value });
 
-  const handleSession = (token: string, user: IUser) => {
+  const handleSession = (token: string, user: User) => {
     createSession(token, user);
     navigate(PATHNAMES.HOME);
   };
@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
     setMessage("");
     setLoginLoading(true);
     login(formData.email, formData.password)
-      .then((res: ILoginResponse) => {
+      .then((res: LoginResponse) => {
         handleSession(res.accessToken, res.user);
       })
       .catch(setMessage)

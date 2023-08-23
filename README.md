@@ -10,7 +10,7 @@
 
 - `src/assets`: directorio para imágenes.
 - `src/components`: directorio para componentes React.
-- `src/models`: directorio para interfaces TypeScript.
+- `src/models`: directorio para types de TypeScript.
 - `src/routes`: directorio para componentes relacionados con rutas.
 - `src/services`: directorio para las funciones que interactuán con la API Rest y `localstorage`.
 

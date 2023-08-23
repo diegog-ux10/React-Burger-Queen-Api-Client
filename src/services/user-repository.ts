@@ -1,4 +1,4 @@
-import { IUser } from "../models/user";
+import { User } from "../models/user";
 import { host, jsonFetch } from "./common-service";
 
 /**
@@ -6,7 +6,7 @@ import { host, jsonFetch } from "./common-service";
  * @param id
  * @returns Promise<token>
  */
-export function getUser(id: number): Promise<IUser> {
+export function getUser(id: number): Promise<User> {
   const url = host + "/users/" + id;
 
   if (id < 1) return Promise.reject();

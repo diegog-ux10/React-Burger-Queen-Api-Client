@@ -1,16 +1,16 @@
 import { EventOnChange } from "../../models/event";
-import { IOrder, IOrderProduct } from "../../models/order";
-import { IProduct } from "../../models/product";
+import { Order, OrderProduct } from "../../models/order";
+import { Product } from "../../models/product";
 import OrderProductList from "../order-product-list/order-product-list";
 
 import "./create-order.css";
 
-interface CreateOrderProps {
-  order: IOrder;
-  onAddProduct: (product: IProduct) => void;
-  onRemoveProduct: (product: IProduct) => void;
+type CreateOrderProps = {
+  order: Order;
+  onAddProduct: (product: Product) => void;
+  onRemoveProduct: (product: Product) => void;
   onChangeCustomer: (e: EventOnChange) => void;
-}
+};
 
 const CreateOrder: React.FC<CreateOrderProps> = ({
   onRemoveProduct: handleRemoveProduct,
@@ -30,9 +30,9 @@ const CreateOrder: React.FC<CreateOrderProps> = ({
         {" "}
         Total cost: $
         {order.products.reduce(
-          (memo: number, item: IOrderProduct) =>
+          (memo: number, item: OrderProduct) =>
             item.product.price * item.qty + memo,
-          0,
+          0
         )}
       </div>
       <form action="">

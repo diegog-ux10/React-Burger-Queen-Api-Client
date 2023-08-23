@@ -1,4 +1,4 @@
-import { IProduct } from "./product";
+import { Product } from "./product";
 
 export enum ROLES {
   admin = "admin",
@@ -6,12 +6,12 @@ export enum ROLES {
   chef = "chef",
 }
 
-export interface IOrder {
+export type Order = {
   costumer: string;
-  products: IOrderProduct[];
-}
+  products: OrderProduct[];
+};
 
-export interface IOrderProduct {
-  product: IProduct;
+export type OrderProduct = {
+  product: Product;
   qty: number;
-}
+};
