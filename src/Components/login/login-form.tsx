@@ -2,25 +2,25 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { EventOnChange, EventPreventDefault } from "../../models/event";
-import { User } from "../../models/user";
 import { LoginResponse } from "../../models/response";
-import { createSession, login } from "../../services/token-repository";
+import { createSession } from "../../services/token-repository";
 import { PATHNAMES } from "../../routes/routes";
+import { useLogin } from "../../utils/hooks/use-login";
 
 import burgerImg from "../../assets/burger.jpg";
 import "./login-form.css";
 
+
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-
+  const { loginRequest, loginRequestStatus } = useLogin();
+  const loginLoading = loginRequestStatus === "loading";
   const initialFormState = {
     email: "",
     password: "",
   };
 
   const [formData, setFormData] = useState(initialFormState);
-
-  const [loginLoading, setLoginLoading] = useState(false);
 
   const [message, setMessage] = useState("");
 
@@ -30,21 +30,24 @@ const LoginForm: React.FC = () => {
   const handleChangePassword = (e: EventOnChange) =>
     setFormData({ ...formData, password: e.target.value });
 
-  const handleSession = (token: string, user: User) => {
-    createSession(token, user);
+  const handleSession = (res: LoginResponse) => {
+    createSession(res.accessToken, res.user);
     navigate(PATHNAMES.HOME);
   };
 
   const handleSubmit = (e: EventPreventDefault) => {
     e.preventDefault();
     setMessage("");
-    setLoginLoading(true);
-    login(formData.email, formData.password)
-      .then((res: LoginResponse) => {
-        handleSession(res.accessToken, res.user);
-      })
-      .catch(setMessage)
-      .finally(() => setLoginLoading(false));
+    loginRequest({
+      payload: {
+        email: formData.email,
+        password: formData.password,
+      },
+      options: {
+        onSuccess: handleSession,
+        onError: (error) => setMessage(error.message),
+      },
+    });
   };
 
   return (
